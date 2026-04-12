@@ -54,7 +54,7 @@ const Signup = () => {
 
         <form className='p-4 border rounded shadow mx-auto' style= {{maxWidth:'400px'}} onSubmit={handleSubmit}>
             <div className='mb-3'>
-                <label className='form-lable'>Full Name</label>
+                <label className='form-label'>Full Name</label>
                 <div className='input-group'>
                     <span className="input-group-text">
                         <i className="fas fa-user">
@@ -67,7 +67,7 @@ const Signup = () => {
 
             </div>
             <div className='mb-3'>
-                <label className='form-lable'>Email</label>
+                <label className='form-label'>Email</label>
                 <div className='input-group'>
                     <span className="input-group-text">
                         <i className="fas fa-envelope">
@@ -80,7 +80,7 @@ const Signup = () => {
 
             </div>
             <div className='mb-3'>
-                <label className='form-lable'>Password</label>
+                <label className='form-label'>Password</label>
                 <div className='input-group'>
                     <span className="input-group-text">
                         <i className="fas fa-lock">
@@ -93,7 +93,7 @@ const Signup = () => {
 
             </div>
 
-            <button type="submit" className='btn btn-primary w-100 mt-3'><i clssName='fas fa-user-plus me-2'></i>Signup</button>
+            <button type="submit" className='btn btn-primary w-100 mt-3'><i className='fas fa-user-plus me-2'></i>Signup</button>
                 
         </form>
 
