@@ -75,3 +75,13 @@ def add_expense(request):
                 'message': 'Something went wrong',
                 'error': str(e)
             }, status=400)
+
+# Manage Expense API
+@csrf_exempt
+def manage_expense(request,user_id):
+    if request.method == 'GET':
+           expenses = Expense.objects.filter(  UserId=user_id)
+           expense_list=list(expenses.values())
+           return JsonResponse(expense_list,safe=False)
+
+        
