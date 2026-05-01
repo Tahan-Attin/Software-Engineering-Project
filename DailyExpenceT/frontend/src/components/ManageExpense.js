@@ -64,6 +64,29 @@ const ManageExpense = () => {
 
     };
 
+    const handleDelete=async(expenseId)=>{
+        if(window.confirm('Are you sure you want to delete this expense?')){
+        try{
+            const response = await fetch(`http://127.0.0.1:8000/api/delete_expense/${expenseId}/`,{
+                    method :'DELETE',
+                    
+            });
+            if(response.status===200){
+                toast.success('Expense delete successfully!');
+                fetchExpenses(userId);
+            }
+            else{
+                toast.error('Failed to update expense');
+            }
+        }
+        catch(error){
+           console.error("Error deleting expenses :",error);
+           toast.error('something went wrong');
+        }
+    }
+
+    };
+
   return (
    <div className='container mt-5'>
         <div className='text-center mb-4'>
@@ -92,7 +115,7 @@ const ManageExpense = () => {
                         <td>{exp.ExpenseCost}</td>
                         <td>
                             <button className='btn btn-small btn-info me-2' onClick={()=>handleEdit(exp)}><i className='fas fa-edit '></i></button>
-                            <button className='btn btn-small btn-danger'><i className='fas fa-trash-alt'></i></button>
+                            <button className='btn btn-small btn-danger'  onClick={()=>handleDelete(exp.id)}><i className='fas fa-trash-alt'></i></button>
                         </td>
 
                     </tr>
@@ -116,7 +139,7 @@ const ManageExpense = () => {
             </table>
         </div> 
 
-{editExpense && (<div className="modal show d-block" >
+{editExpense && (<div className="modal show d-block" style={{background :'rgba(0,0,0.5)'}} >
   <div className="modal-dialog" >
     <div className="modal-content">
       <div className="modal-header bg-primary text-white">

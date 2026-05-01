@@ -104,3 +104,15 @@ def update_expense(request, expense_id):
 
         except Expense.DoesNotExist:
             return JsonResponse({'message': 'Expense not found'}, status=404)
+
+#delete_expense
+@csrf_exempt
+def delete_expense(request, expense_id):
+    if request.method == 'DELETE':
+        try:
+            expense = Expense.objects.get(id=expense_id)
+            expense.delete()
+            return JsonResponse({'message': 'Expense deleted Successfully'})
+
+        except Expense.DoesNotExist:
+            return JsonResponse({'message': 'Expense not found'}, status=404)
