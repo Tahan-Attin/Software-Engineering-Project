@@ -70,7 +70,7 @@ const AddExpense = () => {
                 <label className='form-label'>Expense Date</label>
                 <div className='input-group'>
                     <span className="input-group-text">
-                        <i className="fas fa-calender-alt">
+                        <i className="fas fa-calendar-alt">
 
                         </i>
                     </span>
